@@ -1,11 +1,6 @@
 from django.shortcuts import render
-from rest_framework import viewsets
-from django.core.mail import EmailMessage
-import consult
-from django.core.mail import EmailMessage, get_connection
-from django.conf import settings
-from .forms import Customerform
 
+from .forms import Customerform
 
 
 # Create your  views here.
@@ -21,7 +16,7 @@ def home(request):
         # context['form'] = Customerform()
 
     context = {'form': form}
-    return render(request, "home.html", {context})
+    return render(request, "home.html", context)
 
 
 def ru(request):

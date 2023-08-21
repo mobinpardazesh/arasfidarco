@@ -1,8 +1,8 @@
 # Create your models here.
+import datetime
 
 from django.db import models
 from django.utils import timezone
-
 
 # Create your models here.
 
@@ -22,7 +22,7 @@ class Customer(models.Model):
     email_address = models.EmailField(max_length=100, default="Id@Domain.com --> rosa124@gmail.com")
     message_text = models.TextField(max_length=5000, default="Enter Your Massage Please...")
     role_choice = models.CharField(max_length=100, choices=Role_Choice.choices, default=Role_Choice.Other)
-    send_date_time = models.DateTimeField(default=timezone.now())
+    send_date_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.first_name.upper()} {self.last_name.upper()} / {self.mobile_number} / {self.email_address} / {self.company_name} / {self.country_name} / {self.role_choice} / {self.send_date_time}'
